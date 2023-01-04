@@ -18,7 +18,8 @@ CREATE TABLE Comment(
 CREATE TABLE Post(
 	id_post int primary key,
 	content_post text,
-	created_at date
+	created_at date,
+	
 );
 CREATE TABLE Message(
 	id_message int primary key,
