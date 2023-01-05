@@ -1,3 +1,6 @@
+CREATE database nakamu_db;
+use nakamu_db;
+
 CREATE TABLE users(
 	id int primary key not null,
 	firstname varchar(250),
