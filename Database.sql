@@ -1,4 +1,7 @@
-CREATE TABLE user(
+CREATE database nakamu_db;
+use nakamu_db;
+
+CREATE TABLE users(
 	id int primary key not null,
 	firstname varchar(250),
 	lastname varchar(250),
@@ -7,19 +10,18 @@ CREATE TABLE user(
 	password varchar(250),
 	birthdate date,
 	role varchar(100),
-	photo text,
+	photo text
 );
 CREATE TABLE Comment(
 	id_comment int primary key,
 	content text,
 	created_at date,
-	id_user int,
+	id_user int
 );
 CREATE TABLE Post(
 	id_post int primary key,
 	content_post text,
-	created_at date,
-	
+	created_at date
 );
 CREATE TABLE Message(
 	id_message int primary key,
@@ -28,5 +30,6 @@ CREATE TABLE Message(
 	message_content text,
 	status boolean,
 	upload_message text	
-
 );
+
+insert into users (id, firstname, lastname, age, email, password, birthdate, role) values (1, 'Moustapha Adrien', 'Mboumba', 23, 'moustaphaadrienmboumba@esp.sn', 'passer123', '1999-01-01','admin');
