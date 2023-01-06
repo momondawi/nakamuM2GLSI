@@ -42,6 +42,29 @@ CREATE TABLE `Message` (
   `upload_message` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` varchar(20) NOT NULL,
+  `firstname` varchar(250) DEFAULT NULL,
+  `lastname` varchar(250) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `email` varchar(250) DEFAULT NULL,
+  `password` varchar(250) DEFAULT NULL,
+  `birthdate` date DEFAULT NULL,
+  `role` varchar(100) DEFAULT NULL,
+  `photo` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `age`, `email`, `password`, `birthdate`, `role`, `photo`) VALUES
+('1', 'Moustapha Adrien', 'Mboumba', 23, 'moustaphaadrienmboumba@esp.sn', 'passer123', '1999-01-01', 'admin', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -67,28 +90,6 @@ INSERT INTO `Post` (`id_post`, `content_post`, `created_at`, `id_user`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `users`
---
-
-CREATE TABLE `users` (
-  `id` varchar(20) NOT NULL,
-  `firstname` varchar(250) DEFAULT NULL,
-  `lastname` varchar(250) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
-  `email` varchar(250) DEFAULT NULL,
-  `password` varchar(250) DEFAULT NULL,
-  `birthdate` date DEFAULT NULL,
-  `role` varchar(100) DEFAULT NULL,
-  `photo` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `age`, `email`, `password`, `birthdate`, `role`, `photo`) VALUES
-('1', 'Moustapha Adrien', 'Mboumba', 23, 'moustaphaadrienmboumba@esp.sn', 'passer123', '1999-01-01', 'admin', NULL);
 
 --
 -- Index pour les tables déchargées

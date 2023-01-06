@@ -1,4 +1,4 @@
 <?php
-require_once('modele/publication.php');
-require_once('vue/publicationVue.php');
+require_once('Publication/modele/publication.php');
+require_once('Publication/vue/publicationVue.php');
     

@@ -1,7 +1,7 @@
 <?php
 
 $user = 'root';
-$pwd= 'root';
+$pwd= 'azerty';
 try{
     $bdd = new PDO ('mysql:host=localhost;dbname=nakamu_DB',$user,$pwd);
 }
