@@ -128,3 +128,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `Post`
   MODIFY `id_post` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+ALTER TABLE `Comment`
+  ADD `parent_id` int(11) NOT NULL DEFAULT '-1';
+
