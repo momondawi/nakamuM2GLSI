@@ -1,5 +1,5 @@
 <?php 
-require('Model/database.php');
+// require('Model/database.php');
 
 // function time_elapsed_string($datetime, $full = false) {
 //     $now = new DateTime;

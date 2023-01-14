@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <script src="View/js/index.js">
+    </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
@@ -69,12 +71,11 @@
               <div class="w-1/3 hover:bg-gray-200 text-center text-xl text-gray-700 font-semibold">Like</div>
               <div class="w-1/3 hover:bg-gray-200 border-l-4 border-r- text-center text-xl text-gray-700 font-semibold">Share</div>
               <div class="w-1/3 hover:bg-gray-200 border-l-4 text-center text-xl text-gray-700 font-semibold">
-                <a href="#" class="text-gray-700 font-semibold" data-comment-id="-1">Comment</a>
+                <a href="#" id="comments" class="text-gray-700 font-semibold" data-comment-id="-1" onclick="showComments()">Comment</a>
               </div>
-                <?=show_write_comment_form()?>
-
-                <?=show_comments($comments)?>
             </div>
+            
+          
           </div>
         <?php }
       ?>

@@ -1,5 +1,5 @@
 <?php
-   include('Model/database.php');
+//    include('Model/database.php');
     
     if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
         $id_user = '1';
