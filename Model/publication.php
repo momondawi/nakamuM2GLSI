@@ -22,5 +22,5 @@ if(isset($_POST['insert'])){
     header('location:index.php');
 }
 
-$select_request="select content_post, created_at from post order by id_post desc";
+$select_request="select id_post, content_post, created_at from post order by id_post desc";
 $select_result=$conn->query($select_request);

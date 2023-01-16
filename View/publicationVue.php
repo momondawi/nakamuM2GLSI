@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <script src="View/js/index.js">
+    <script src="View/js/index2.js">
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.css" rel="stylesheet" /> -->
+
 </head>
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
     <div class="w-full flex flex-row flex-wrap">
@@ -64,21 +66,19 @@
       <?php
         while ($row = $select_result->fetch()){?>
           <div class="bg-white mt-3">
-            <div class="bg-white border shadow p-5 text-xl text-gray-700 font-semibold">
-              <?php echo $row['content_post'];?>
-            </div>
-            <div class="bg-white p-1 border shadow flex flex-row flex-wrap">
-              <div class="w-1/3 hover:bg-gray-200 text-center text-xl text-gray-700 font-semibold">Like</div>
-              <div class="w-1/3 hover:bg-gray-200 border-l-4 border-r- text-center text-xl text-gray-700 font-semibold">Share</div>
-              <div class="w-1/3 hover:bg-gray-200 border-l-4 text-center text-xl text-gray-700 font-semibold">
-                <a href="#" id="comments" class="text-gray-700 font-semibold" data-comment-id="-1" onclick="showComments()">Comment</a>
+              <div class="bg-white border shadow p-5 text-xl text-gray-700 font-semibold">
+                <?php echo $row['content_post'];?>
               </div>
-            </div>
-            
-          
+                <div class="bg-white p-1 border shadow flex flex-row flex-wrap">
+                  <div class="w-1/3 hover:bg-gray-200 text-center text-xl text-gray-700 font-semibold">Like</div>
+                  <div class="w-1/3 hover:bg-gray-200 border-l-4 border-r- text-center text-xl text-gray-700 font-semibold">Share</div>
+                  <a href="javascript:void(0)" class="w-1/3 hover:bg-gray-200 border-l-4 text-center text-xl text-gray-700 font-semibold" onclick="showComments(<?php echo $row['id_post'];?>)">Comment</a>
+                </div>
+                <div href="#" id="<?php echo $row['id_post'];?>formComment" class="text-gray-700 font-semibold"></div>
           </div>
         <?php }
       ?>
+      </div>
         
         <!-- <div class="bg-white mt-3">
           <img class="border rounded-t-lg shadow-lg " src="https://images.unsplash.com/photo-1572817519612-d8fadd929b00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
@@ -105,5 +105,7 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/flowbite.min.js"></script>
 </body>
+
 </html>
