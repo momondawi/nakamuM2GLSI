@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
+    <script src="./vue/script.js"></script>
 </head>
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
     <div class="w-full flex flex-row flex-wrap">
@@ -42,15 +43,16 @@
     
     <div class="w-full md:w-3/4 lg:w-4/5 p-5 md:px-12 h-full overflow-x-scroll antialiased">
       <div class="bg-white w-full shadow rounded-lg p-5">
-      <form method="POST">
-        <textarea class="bg-gray-200 w-full rounded-lg shadow border p-2" rows="5" placeholder="Speak your mind" name="publication"></textarea>
+      <form method="POST" enctype="multipart/form-data">
+        <textarea class="bg-gray-200 w-full rounded-lg shadow border p-2" rows="5" placeholder="Speak your mind" name="publication" id="publication"></textarea>
+        <div id="preview"></div>
         <div class="w-full flex flex-row flex-end mt-3">
-          <!-- <div class="w-1/3">
-            <select class="w-full p-2 rounded-lg bg-gray-200 shadow border float-left">
-              <option>Public</option>
-              <option>Private</option>
-            </select>
-          </div> -->
+          <div class="w-1/3">
+            <label for="imageChoisi">
+              <img src="./assets/ajouter.png" width="50" height="50" style="cursor: pointer;">
+            </label>
+            <input type="file" name="imageChoisi" id="imageChoisi" style="display: none; visibility: none;" onchange="imagePreview(event)">
+          </div>
           <div class="w-full">
             <input type="submit" class="float-right bg-indigo-400 hover:bg-indigo-300 text-white p-2 rounded-lg" name="insert" value="submit">
           </div> 
@@ -63,7 +65,12 @@
         while ($row = $select_result->fetch()){?>
           <div class="bg-white mt-3">
             <div class="bg-white border shadow p-5 text-xl text-gray-700 font-semibold">
-              <?php echo $row['content_post'];?>
+              <?php echo $row['content_post'];
+              if(strlen($row['img'])>0){
+                ?><img src="<?php echo $row['img'] ?>" class="object-containt h-48 w-96"><?php
+              }
+              echo date("d/m/Y à H:i:s", $row ['created_at']);
+              ?>
             </div>
             <div class="bg-white p-1 border shadow flex flex-row flex-wrap">
               <div class="w-1/3 hover:bg-gray-200 text-center text-xl text-gray-700 font-semibold">Like</div>
