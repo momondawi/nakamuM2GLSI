@@ -23,7 +23,7 @@ if(isset($_POST['insert'])){
     $extension1=substr($Extension1,1);
     $extension1=strtolower($Extension1);
 
-    if(empty($img_tmp)){
+    if(!empty($_POST['publication']) && empty($img_tmp)){
         $post = $_POST['publication'];
         $id_user = '1';
         $req="insert into post (content_post, created_at, id_user) values(:post, :date, :id_user)";
@@ -34,7 +34,7 @@ if(isset($_POST['insert'])){
         $exec=$res->execute();
         header('location:index.php');
     }
-    else{
+    else if (empty($_POST['publication']) && !empty($img_tmp)){
         if(!is_uploaded_file($img_tmp)){
             print "Erreur";
         }
@@ -56,13 +56,15 @@ if(isset($_POST['insert'])){
                 }
             }
             else{
-                print 'T\'as aucun niveau';
+                print 'Ce n\'est pas une image';
             }
         }
     }
-
+    else if (empty($_POST['publication']) && empty($img_tmp)){
+        header('location:index.php');
+    }
     
 }
 
-$select_request="select content_post, created_at, img from post order by id_post desc";
+$select_request="select content_post, created_at, img, id_user from post order by id_post desc";
 $select_result=$bdd->query($select_request);
